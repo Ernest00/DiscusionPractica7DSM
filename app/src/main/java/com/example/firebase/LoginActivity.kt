@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.facebook.CallbackManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -16,8 +17,14 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import com.google.firebase.auth.GoogleAuthProvider
-import android.content.SharedPreferences
+
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.widget.LoginButton
+import com.google.firebase.auth.FacebookAuthProvider
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -26,10 +33,15 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
     lateinit var mGoogleSignInClient: GoogleSignInClient
+
+    private lateinit var callbackManager: CallbackManager
+    private lateinit var buttonFacebookLogin: LoginButton
+
     val Req_Code: Int = 123
 
     private lateinit var btnLogin: Button
     private lateinit var btnSignin: Button
+    private lateinit var btnSignin2: Button
     private lateinit var textViewRegister: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,6 +64,13 @@ class LoginActivity : AppCompatActivity() {
         btnSignin.setOnClickListener { view: View? ->
             Toast.makeText(this, "Logging In", Toast.LENGTH_SHORT).show()
             signInGoogle()
+        }
+
+        btnSignin2 = findViewById<Button>(R.id.btnSignin2)
+
+        btnSignin2.setOnClickListener { view: View? ->
+            Toast.makeText(this, "Logging In", Toast.LENGTH_SHORT).show()
+            //signInGoogle()
         }
 
         btnLogin = findViewById<Button>(R.id.btnLogin)

@@ -2,6 +2,7 @@
     <string name="app_name">Firebase</string>
     <string name="login">Log In</string>
     <string name="forgotPass">Forgot your password?</string>
-    <string name="facebook_app_id">214268554165523</string>
-    <string name="fb_login_protocol_scheme">fb214268554165523</string>
+    <string name="facebook_app_id">2077240015800458</string>
+    <string name="fb_login_protocol_scheme">fb2077240015800458</string>
+    <string name="facebook_client_token">e3e7ae4aae859b516e0331b8fdf6ae65</string>
 </resources>
